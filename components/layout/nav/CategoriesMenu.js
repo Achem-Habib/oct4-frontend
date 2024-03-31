@@ -33,7 +33,7 @@ export default function CategoriesMenu({ categories, occasions, recipients }) {
       >
         <Popover.Panel className="absolute left-0 z-50 mt-5 flex w-screen max-w-sm ">
           <div className="w-screen max-w-sm max-h-screen overflow-y-auto flex-auto bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-            <div className=" mx-4">
+            <div className="py-8 mx-4">
               {/* Categories list */}
               {categories.length > 0 && (
                 <div>
