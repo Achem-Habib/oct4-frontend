@@ -10,20 +10,11 @@ export default async function Shop({ searchParams }) {
 
   const totalResults = products["total_count"];
 
-  const totalPages = totalResults / 5;
-
-  console.log(query);
-
-  let title;
-  if (query["sort_by"] === "newest") {
-    title = "NEW ARRIVAL";
-  } else {
-    title = "SHOP ALL PRODUCTS";
-  }
+  const totalPages = Math.ceil(totalResults / 20);
 
   return (
     <div className="w-full">
-      <Header title={title} resultsCount={totalResults} />
+      <Header title="SHOP" resultsCount={totalResults} />
       <Products products={products["results"]} />
       <Pagination totalPages={totalPages} />
     </div>

@@ -16,7 +16,7 @@ export default async function ShopByCategory({ params, searchParams }) {
 
   const totalResults = products["total_count"];
 
-  const totalPages = totalResults / 5;
+  const totalPages = Math.ceil(totalResults / 20);
 
   const title = transformSlug(category);
 

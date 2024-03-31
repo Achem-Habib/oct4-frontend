@@ -14,7 +14,7 @@ export default function CartIcon() {
           className="h-7 w-7 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
           aria-hidden="true"
         />
-        <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+        <span className="-ml-3.5 -mt-4 z-10 px-1 py-0.5 text-xs font-bold bg-yellow-400 text-white rounded-sm">
           {totalItems}
         </span>
         <span className="sr-only">items in cart, view bag</span>

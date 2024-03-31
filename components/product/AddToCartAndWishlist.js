@@ -1,12 +1,12 @@
 "use client";
 
-import { useCartContext } from "@/context/CartContext";
 import { normalizeImageUrl } from "@/lib";
 import { useState } from "react";
+import AddToCart from "../common/AddToCart";
+import AddToWishlist from "../common/AddToWishlist";
 
-export default function AddToCart({ product }) {
+export default function AddToCartAndWishlist({ product }) {
   const [quantity, setQuantity] = useState(1);
-  const { addItemToCart } = useCartContext();
 
   const { id, slug, name, discounted_price, primary_image, stock_quantity } =
     product;
@@ -55,12 +55,10 @@ export default function AddToCart({ product }) {
           </button>
         </div>
       </div>
-      <button
-        onClick={addToCartHandler}
-        className=" flex min-w-max max-w-xs items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-      >
-        Add to bag
-      </button>
+      <div className="flex gap-x-2 w-full">
+        <AddToCart product={product} quantity={quantity} isWishlist={false} />
+        <AddToWishlist product={product} />
+      </div>
     </div>
   );
 }

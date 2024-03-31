@@ -2,7 +2,7 @@
 import { getProductDetail, getReviews } from "@/lib/data/getData";
 
 // components
-import AddToCart from "@/components/product/AddToCart";
+import AddToCartAndWishlist from "@/components/product/AddToCartAndWishlist";
 import ProductImages from "@/components/product/ProductImages";
 import ProductInfo from "@/components/product/ProductInfo";
 import ReviewForm from "@/components/product/ReviewForm";
@@ -54,7 +54,7 @@ export default async function ProductDetail({ params }) {
           <ProductInfo product={product} averageRating={averageRating} />
 
           <div>
-            <AddToCart product={product} />
+            <AddToCartAndWishlist product={product} />
           </div>
         </div>
       </div>

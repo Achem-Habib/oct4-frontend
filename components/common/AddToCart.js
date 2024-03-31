@@ -35,7 +35,7 @@ export default function AddToCart({ product, quantity, isWishlist }) {
     <button
       onClick={addToCartHandler}
       disabled={isLoading}
-      className="w-full hover:border-white/40 flex items-center justify-center rounded-md border border-transparent bg-blue-600 hover:bg-blue-700 px-2 py-1.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300"
+      className="w-full max-w-xs hover:border-white/40 flex items-center justify-center rounded-md border border-transparent bg-blue-600 hover:bg-blue-700 px-2 py-1.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

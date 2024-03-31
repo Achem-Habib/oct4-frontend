@@ -1,11 +1,17 @@
 "use client";
 
 import { useFilterContext } from "@/context/FilterContext";
+import { transformSlug } from "@/lib/transformSlug";
 import { FunnelIcon } from "@heroicons/react/20/solid";
+import { useSearchParams } from "next/navigation";
 import SortOptions from "./SortOptions";
 
 export default function Header({ title, resultsCount }) {
   const { setMobileFiltersOpen } = useFilterContext();
+  const params = useSearchParams();
+
+  const occasion = params.get("occasion") || "";
+  const recipient = params.get("recipient") || "";
 
   return (
     <div className="border-b border-gray-200 pb-3 w-full mt-6">
@@ -28,6 +34,17 @@ export default function Header({ title, resultsCount }) {
         </div>
       </div>
       <p className="mt-2 text-sm text-slate-500">{resultsCount} Results</p>
+
+      {(occasion || recipient) && (
+        <p className="mt-2 text-sm text-slate-500">
+          Filtered by{" "}
+          <span className="text-blue-600">
+            {" "}
+            {transformSlug(occasion)} {occasion && recipient && ","}{" "}
+            {transformSlug(recipient)}
+          </span>
+        </p>
+      )}
     </div>
   );
 }
