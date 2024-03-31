@@ -6,15 +6,15 @@ export const footerContent = [
     subtitles: [
       {
         text: "About Us",
-        href: "/about",
+        href: "#",
       },
       {
         text: "Contact Us",
-        href: "/blank",
+        href: "#",
       },
       {
         text: "Sale",
-        href: "/blank",
+        href: "#",
       },
     ],
   },
@@ -23,19 +23,19 @@ export const footerContent = [
     subtitles: [
       {
         text: "Who we are",
-        href: "/blank",
+        href: "#",
       },
       {
         text: "Sustainability",
-        href: "/blank",
+        href: "#",
       },
       {
         text: "Terms & Condition",
-        href: "/blank",
+        href: "#",
       },
       {
         text: "Privacy",
-        href: "/blank",
+        href: "#",
       },
     ],
   },

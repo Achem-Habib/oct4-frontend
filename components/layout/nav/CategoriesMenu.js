@@ -33,14 +33,14 @@ export default function CategoriesMenu({ categories, occasions, recipients }) {
       >
         <Popover.Panel className="absolute left-0 z-50 mt-5 flex w-screen max-w-sm ">
           <div className="w-screen max-w-sm max-h-screen overflow-y-auto flex-auto bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-            <div className="p-4">
+            <div className=" mx-4">
               {/* Categories list */}
-              <div>
-                <h1 className="text-gray-800 text-lg font-bold">
-                  Gifts By Category
-                </h1>
-                {categories.length > 0 &&
-                  categories.map((category) => (
+              {categories.length > 0 && (
+                <div>
+                  <h1 className="text-gray-800 text-lg font-bold">
+                    Gifts By Category
+                  </h1>
+                  {categories.map((category) => (
                     <Disclosure key={category.id}>
                       {({ open }) => (
                         <>
@@ -77,12 +77,12 @@ export default function CategoriesMenu({ categories, occasions, recipients }) {
                             </Disclosure.Button>
                           </div>
 
-                          <Disclosure.Panel className="flex flex-col gap-y-2 px-8 py-2">
+                          <Disclosure.Panel className="flex flex-col gap-y-3 pl-16 py-2">
                             {category.subcategories.map((subcategory) => (
                               <Link
                                 href={`/shop/${category.slug}/${subcategory.slug}`}
                                 key={subcategory.id}
-                                className="text-gray-600 hover:text-gray-900 font-medium"
+                                className="text-sm hover:text-gray-900 "
                               >
                                 {subcategory.name}
                               </Link>
@@ -92,18 +92,19 @@ export default function CategoriesMenu({ categories, occasions, recipients }) {
                       )}
                     </Disclosure>
                   ))}
-              </div>
+                </div>
+              )}
 
               {/* Occassions list */}
-              <div className="mt-6">
-                <h1 className="text-gray-800 text-lg font-bold">
-                  Gifts By Occasion
-                </h1>
-                {occasions.length > 0 &&
-                  occasions.map((occasion) => (
+              {occasions.length > 0 && (
+                <div className="mt-6">
+                  <h1 className="text-gray-800 text-lg font-bold">
+                    Gifts By Occasion
+                  </h1>
+                  {occasions.map((occasion) => (
                     <Link
                       key={occasion.id}
-                      href={`/shop/${occasion.slug}`}
+                      href={`/shop?occasion=${occasion.slug}`}
                       className="flex gap-x-4 hover:opacity-80 p-4"
                     >
                       <div className=" flex h-11 w-11 flex-none items-center justify-center rounded-lg ">
@@ -124,18 +125,19 @@ export default function CategoriesMenu({ categories, occasions, recipients }) {
                       </span>
                     </Link>
                   ))}
-              </div>
+                </div>
+              )}
 
               {/* Recipients list */}
-              <div className="mt-6">
-                <h1 className="text-gray-800 text-lg font-bold">
-                  Gifts By Recipient
-                </h1>
-                {recipients.length > 0 &&
-                  recipients.map((recipient) => (
+              {recipients.length > 0 && (
+                <div className="mt-6">
+                  <h1 className="text-gray-800 text-lg font-bold">
+                    Gifts By Recipient
+                  </h1>
+                  {recipients.map((recipient) => (
                     <Link
                       key={recipient.id}
-                      href={`/shop/${recipient.slug}`}
+                      href={`/shop?recipient=${recipient.slug}`}
                       className="flex gap-x-4 hover:opacity-80 p-4"
                     >
                       <div className=" flex h-11 w-11 flex-none items-center justify-center rounded-lg ">
@@ -156,7 +158,8 @@ export default function CategoriesMenu({ categories, occasions, recipients }) {
                       </span>
                     </Link>
                   ))}
-              </div>
+                </div>
+              )}
             </div>
           </div>
         </Popover.Panel>
