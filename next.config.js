@@ -9,6 +9,11 @@ module.exports = {
         hostname: "oct4-admin.onrender.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+      },
     ],
   },
 };
