@@ -61,7 +61,11 @@ export default function MobileNav({
                 </button>
                 {/* Logo */}
                 <div className="ml-4 flex lg:ml-0">
-                  <Link href="/" className="flex items-center">
+                  <Link
+                    onClick={() => setOpen(false)}
+                    href="/"
+                    className="flex items-center"
+                  >
                     <Logo />
                   </Link>
                 </div>
@@ -105,6 +109,7 @@ export default function MobileNav({
                   <Tab.Panel className="space-y-10 px-4 pb-8 pt-4">
                     <div className="mx-5 flex flex-col gap-y-8">
                       <Link
+                        onClick={() => setOpen(false)}
                         href="/cart"
                         className="-m-2 flex gap-x-4 p-2 font-medium hover:bg-gray-100"
                       >
@@ -115,6 +120,7 @@ export default function MobileNav({
                       </Link>
 
                       <Link
+                        onClick={() => setOpen(false)}
                         href="/wishlist"
                         className="-m-2 flex gap-x-4 p-2  font-medium  hover:bg-gray-100"
                       >
@@ -127,6 +133,7 @@ export default function MobileNav({
                       {session ? (
                         <>
                           <Link
+                            onClick={() => setOpen(false)}
                             href="/account/order-history"
                             className="-m-2 flex gap-x-4 p-2 font-medium hover:bg-gray-100"
                           >
@@ -138,6 +145,7 @@ export default function MobileNav({
                             </span>
                           </Link>
                           <Link
+                            onClick={() => setOpen(false)}
                             href="/account"
                             className="-m-2 flex gap-x-4 p-2 font-medium hover:bg-gray-100"
                           >
@@ -150,6 +158,7 @@ export default function MobileNav({
                       ) : (
                         <>
                           <Link
+                            onClick={() => setOpen(false)}
                             href="/auth/sign-in"
                             className="-m-2 flex gap-x-4 p-2 font-medium text-slate-600  hover:bg-gray-100"
                           >
@@ -160,6 +169,7 @@ export default function MobileNav({
                           </Link>
 
                           <Link
+                            onClick={() => setOpen(false)}
                             href="/auth/sign-up"
                             className="-m-2 flex gap-x-4 p-2 font-medium  hover:bg-gray-100"
                           >

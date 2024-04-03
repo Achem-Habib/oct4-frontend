@@ -1,3 +1,4 @@
+import { useNavContext } from "@/context/NavContext";
 import { normalizeImageUrl } from "@/lib";
 import { Disclosure } from "@headlessui/react";
 import Image from "next/image";
@@ -5,6 +6,7 @@ import Link from "next/link";
 import { HiOutlineMinus, HiOutlinePlus } from "react-icons/hi2";
 
 export default function CategoriesTab({ categories, occasions, recipients }) {
+  const { setOpen } = useNavContext();
   return (
     <div className=" mx-4">
       {/* Categories list */}
@@ -20,6 +22,7 @@ export default function CategoriesTab({ categories, occasions, recipients }) {
                     className="relative flex justify-between p-4"
                   >
                     <Link
+                      onClick={() => setOpen(false)}
                       href={`/shop/${category.slug}`}
                       className="flex gap-x-4 hover:opacity-80"
                     >
@@ -51,6 +54,7 @@ export default function CategoriesTab({ categories, occasions, recipients }) {
                   <Disclosure.Panel className="flex flex-col gap-y-3 pl-16 py-2">
                     {category.subcategories.map((subcategory) => (
                       <Link
+                        onClick={() => setOpen(false)}
                         href={`/shop/${category.slug}/${subcategory.slug}`}
                         key={subcategory.id}
                         className="text-sm hover:text-gray-900 "
@@ -72,6 +76,7 @@ export default function CategoriesTab({ categories, occasions, recipients }) {
           <h1 className="text-gray-800 text-lg font-bold">Gifts By Occasion</h1>
           {occasions.map((occasion) => (
             <Link
+              onClick={() => setOpen(false)}
               key={occasion.id}
               href={`/shop?occasion=${occasion.slug}`}
               className="flex gap-x-4 hover:opacity-80 p-4"
@@ -105,6 +110,7 @@ export default function CategoriesTab({ categories, occasions, recipients }) {
           </h1>
           {recipients.map((recipient) => (
             <Link
+              onClick={() => setOpen(false)}
               key={recipient.id}
               href={`/shop?recipient=${recipient.slug}`}
               className="flex gap-x-4 hover:opacity-80 p-4"
