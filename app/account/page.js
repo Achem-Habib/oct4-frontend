@@ -3,6 +3,9 @@ import { getServerSession } from "next-auth";
 
 export default async function Dashboard() {
   const session = await getServerSession(authOptions);
+  if (!session) {
+    return <div>You are not logged in</div>;
+  }
   return (
     <div className="flex flex-col gap-y-6">
       <div className="flex flex-col gap-y-0.5">
