@@ -22,7 +22,7 @@ function calculateTotalPrice(products) {
 
 export default function OrderSummary({ userId, formData }) {
   const [isLoading, setIsLoading] = useState(false);
-  const { cart } = useCartContext();
+  const { cart, clearCart } = useCartContext();
   const router = useRouter();
 
   const totalPrice = !cart
@@ -55,7 +55,6 @@ export default function OrderSummary({ userId, formData }) {
       .catch((err) => {
         toast.error("Something is going wrong. Can not proceed to payment!");
         setIsLoading(false);
-        console.log(err);
       });
   };
 
@@ -95,6 +94,7 @@ export default function OrderSummary({ userId, formData }) {
       if (response.ok) {
         toast.success("Your order have been placed successfully!");
         toast.info("You are proceeding to payment...");
+        await clearCart();
         await proceedToPayment();
       } else {
         console.log(response);
@@ -155,7 +155,11 @@ export default function OrderSummary({ userId, formData }) {
               onClick={() => handleOrderSubmit()}
               className="flex w-full justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 me-2 mb-2"
             >
-              {isLoading ? <Spinner md /> : "Place Order"}
+              {isLoading ? (
+                <Spinner md />
+              ) : (
+                "Place Order and Proceed to Payment"
+              )}
             </button>
           </div>
         </div>
