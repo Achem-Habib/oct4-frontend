@@ -13,26 +13,18 @@ export default function AddToWishlist({ product }) {
   const [isLoading, setIsLoading] = useState(false);
   const { addItemToWishlist } = useWishContext();
 
-  const {
-    id,
-    name,
-    slug,
-    primary_image,
-    price,
-    discounted_price,
-    stock_quantity,
-  } = product;
-
   const addToWishlistHandler = () => {
     setIsLoading(true);
     addItemToWishlist({
-      id: id,
-      slug: slug,
-      name: name,
-      price: price,
-      discounted_price: discounted_price,
-      stock: stock_quantity,
-      image: primary_image ? normalizeImageUrl(primary_image) : "",
+      id: product.id,
+      slug: product.slug,
+      name: product.name,
+      price: product.price,
+      discounted_price: product.discounted_price,
+      stock: product.stock_quantity,
+      primary_image: product.primary_image
+        ? normalizeImageUrl(product.primary_image)
+        : "",
     });
     toast.success("Item added to your wishlist successfully!");
     setIsLoading(false);

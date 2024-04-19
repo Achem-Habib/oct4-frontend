@@ -9,7 +9,7 @@ export default async function GiftByCategories() {
   return (
     <div>
       {categories?.length > 0 && (
-        <section className="mx-6 md:mx-10 my-8">
+        <section className=" my-8">
           <div className="">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-slate-800 pb-2 border-b border-slate-200 ">
               GIFT BY CATEGORIES

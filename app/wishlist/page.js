@@ -19,7 +19,8 @@ export default function Wishlist() {
       {wishlist?.length > 0 ? (
         <div className="mt-6 grid grid-cols-1 gap-x-3 gap-y-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
           {wishlist?.map((item) => {
-            const { id, name, slug, image, price, discounted_price } = item;
+            const { id, name, slug, primary_image, price, discounted_price } =
+              item;
 
             const discountPercentage = Math.round(
               (100 * (price - discounted_price)) / price
@@ -44,7 +45,9 @@ export default function Wishlist() {
                   >
                     <Image
                       src={
-                        image ? `${normalizeImageUrl(image)}` : "/no-image.jpg"
+                        primary_image
+                          ? `${normalizeImageUrl(primary_image)}`
+                          : "/no-image.jpg"
                       }
                       width={0}
                       height={0}
@@ -90,8 +93,8 @@ export default function Wishlist() {
           })}
         </div>
       ) : (
-        <div className="mt-6 text-lg font-semibold">
-          There are no item in your wishlist
+        <div className="mt-10  font-medium">
+          You have not added any item in your wishlist
         </div>
       )}
     </div>

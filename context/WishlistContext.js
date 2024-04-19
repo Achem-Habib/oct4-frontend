@@ -29,7 +29,7 @@ export const WishProvider = ({ children }) => {
     price,
     discounted_price,
     stock,
-    image,
+    primary_image,
   }) => {
     const item = {
       id,
@@ -38,7 +38,7 @@ export const WishProvider = ({ children }) => {
       price,
       discounted_price,
       stock,
-      image,
+      primary_image,
     };
 
     const isItemExist = wish?.wishItems?.find((i) => i.slug === item.slug);

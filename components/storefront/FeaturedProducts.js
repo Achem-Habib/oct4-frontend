@@ -7,7 +7,7 @@ export default async function FeaturedProducts() {
   return (
     <div>
       {featuredProducts?.length > 0 && (
-        <section className="mx-6 md:mx-10 my-10">
+        <section className=" my-10">
           <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-slate-800 pb-2 border-b border-slate-200 ">
             FEATURED PRODUCTS
           </h2>
