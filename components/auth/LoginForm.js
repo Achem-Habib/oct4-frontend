@@ -38,8 +38,7 @@ export default function LoginForm() {
       toast.success("Logged in successfully!");
       setIsLoading(false);
       setCredentials({ username: "", password: "" });
-      router.back();
-      await router.refresh();
+      await router.back();
     } else {
       // Handle sign-in error
       toast.error("Failed to log in!");
